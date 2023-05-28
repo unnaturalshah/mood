@@ -1,18 +1,20 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🤖 Happy Customer Reinforcement Agent</title>
+  <title>Happy Customer Agent</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header>
+    <h1>Welcome to Happy Customer Agent</h1>
+  </header>
+
   <div id="color-picker-container">
     <label for="color-picker">Choose a color:</label>
     <input type="color" id="color-picker">
   </div>
-
-  <h1>Welcome to Happy Customer Agent</h1>
 
   <div id="mood-select-container">
     <label for="mood-select">Select your mood:</label>
@@ -29,18 +31,22 @@
     <button id="feedback-btn">Provide Feedback</button>
   </div>
 
-  <div id="feedback-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3>Feedback</h3>
-      <textarea id="feedback-text" rows="5" placeholder="Enter your feedback"></textarea>
-      <button id="submit-feedback-btn">Submit</button>
-    </div>
-  </div>
-
   <div id="user-history-container">
     <h2>User History:</h2>
     <ul id="user-history-list"></ul>
+  </div>
+
+  <div id="forecast-container">
+    <h2>Forecast:</h2>
+    <p id="forecast"></p>
+  </div>
+
+  <div id="feedback-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <textarea id="feedback-text" placeholder="Enter your feedback..."></textarea>
+      <button id="submit-feedback-btn">Submit</button>
+    </div>
   </div>
 
   <script src="js/local_storage.js"></script>
