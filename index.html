@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Website</title>
+  <style>
+    body {
+      background-color: white; /* Default background color */
+    }
+  </style>
+</head>
+<body>
+  <h1>Color Picker</h1>
+  
+  <div>
+    <label for="mood-select">I feel... </label>
+    <select id="mood-select">
+      <option value=":) Leave me alone - all is well!:">:) Leave me alone - all is well!:</option>
+      <option value=":( Vent Mode - Listen and hug!:">:( Vent Mode - Listen and hug!:</option>
+      <option value=":| Advise Time - help me!:">:| Advise Time - help me!:</option>
+    </select>
+  </div>
+  
+  <div>
+    <h2>Last Updated Status:</h2>
+    <p id="last-action"></p>
+  </div>
+  
+  <h1>Color Sentiment Insights</h1>
+  <p id="color-sentiment"></p>
+  <p id="user-insights"></p>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sentiment/index.js"></script> 
+  <script src="https://unpkg.com/microsoft-translator/lib/browser/microsoft-translator.js"></script>
+  <script>
+    // Apply selected color to the website
+    $('#mood-select').change(function() {
+      var selectedColor = $(this).val();
+      $('body').css('background-color', selectedColor);
+    });
+  </script>
+</body>
+</html>
