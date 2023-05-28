@@ -1,4 +1,3 @@
-// Store data in local storage
 function setLocalStorage(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
@@ -7,7 +6,6 @@ function setLocalStorage(key, value) {
   }
 }
 
-// Retrieve data from local storage
 function getLocalStorage(key) {
   try {
     const data = localStorage.getItem(key);
