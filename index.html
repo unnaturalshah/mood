@@ -1,24 +1,30 @@
 <html>
 <head>
-  <title>Website</title>
+  <title>HELLO!</title>
   <style>
     body {
       background-color: white; /* Default background color */
     }
   </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <label for="mood-select">I feel... </label>
+<select id="mood-select">
+  <option value=":) Fluid Flow - All is well!:">:) Fluid Flow - All is well!:</option>
+  <option value=":( Vent Mode - Listen and hug!:">:( Vent Mode - Listen and hug!:</option>
+  <option value=":| Advise Time - help me!:">:| Advise Time - help me!:</option>
+</select>
+
+
   <h1>Color Picker</h1>
+  <input type="color" id="color-picker">
   
-  <div>
-    <label for="mood-select">I feel... </label>
-    <select id="mood-select">
-      <option value=":) Leave me alone - all is well!:">:) Leave me alone - all is well!:</option>
-      <option value=":( Vent Mode - Listen and hug!:">:( Vent Mode - Listen and hug!:</option>
-      <option value=":| Advise Time - help me!:">:| Advise Time - help me!:</option>
-    </select>
+    <div>
+    <button id="submit-btn">Submit</button>
   </div>
-  
+
   <div>
     <h2>Last Updated Status:</h2>
     <p id="last-action"></p>
@@ -38,5 +44,6 @@
       $('body').css('background-color', selectedColor);
     });
   </script>
+  <script src="script.js"></script>
 </body>
 </html>
