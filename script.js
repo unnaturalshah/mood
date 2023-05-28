@@ -1,218 +1,87 @@
-// JavaScript code for the website
-const colorInput = document.getElementById('color-input');
-const lastColorElement = document.getElementById('last-color');
-const colorPreview = document.getElementById('color-preview');
+document.addEventListener('DOMContentLoaded', function() {
+  var colorPicker = document.getElementById('color-picker');
+  var moodSelect = document.getElementById('mood-select');
+  var agentRecommendation = document.getElementById('agent-recommendation');
+  var feedbackBtn = document.getElementById('feedback-btn');
 
-const slider = document.getElementById('color-slider');
-const sentimentResult = document.getElementById('sentiment-result');
-const Sentiment = require('sentiment');
+  colorPicker.addEventListener('change', function() {
+    var selectedColor = colorPicker.value;
+    // Perform color-related analysis or actions here
+    console.log('Selected color:', selectedColor);
 
-// Instantiate the sentiment analyzer
-const sentiment = new Sentiment();
-
-$(document).ready(function() {
-// Apply selected color to the website
-  $('#color-input').change(function() {
-    var selectedColor = $(this).val();
-    $('#color-preview').css('background-color', selectedColor);
-    $('#last-color').text(selectedColor);
-    $('body').css('background-color', selectedColor);
+    // Update the agent's mood based on color analysis
+    var mood = analyzeColor(selectedColor);
+    moodSelect.value = mood;
+    var recommendation = getAgentRecommendation(mood);
+    agentRecommendation.textContent = recommendation;
   });
 
-  // Handle mood select change
-  $('#mood-select').change(function() {
-    var selectedMood = $(this).val();
-    $('#last-action').text('Mood changed to ' + selectedMood);
+  moodSelect.addEventListener('change', function() {
+    var mood = moodSelect.value;
+    var recommendation = getAgentRecommendation(mood);
+    agentRecommendation.textContent = recommendation;
   });
 
-  // Handle recommendation form submission
-  $('#recommendation-form').submit(function(event) {
-    event.preventDefault();
-    var recommendation = $('#recommendation-input').val();
-    $('#recommendation-list').append('<li>' + recommendation + '</li>');
-    $('#last-action').text('Recommendation added');
-    $(this)[0].reset();
+  feedbackBtn.addEventListener('click', function() {
+    var feedback = agentRecommendation.textContent;
+    provideFeedback(feedback);
+    // Perform actions based on the feedback
+    console.log('Provided feedback:', feedback);
   });
 
-  // Handle donate form submission
-  $('#donate-form').submit(function(event) {
-    event.preventDefault();
-    var donationAmount = $('#donate-amount').val();
-    $('#donation-status').text('Donated ' + donationAmount + ' successfully!');
-    $('#last-action').text('Donation made');
-    $(this)[0].reset();
-  });
+  // Train agent with 300 random samples
+  trainAgent(300);
 });
 
-
-// Perform sentiment analysis on a color value
-function analyzeSentiment(color) {
-  // Perform sentiment analysis using the Sentiment library
-  const colorSentiment = sentiment.analyze(color);
-  return colorSentiment.score;
-}
-
-// Update color preview based on slider value
-function updateColorPreview() {
-  const hue = slider.value;
-  const color = `hsl(${hue}, 100%, 50%)`;
-  document.getElementById('last-color').textContent = color;
-  colorInput.value = color;
-  analyzeColorSentiment(color);
-}
-
-// Perform sentiment analysis on the color value
-function analyzeColorSentiment(color) {
-  const sentimentScore = analyzeSentiment(color);
-  const sentimentLabel = getSentimentLabel(sentimentScore);
-  sentimentResult.textContent = sentimentLabel;
-}
-
-// Get the donate form element
-const donateForm = document.getElementById('donate-form');
-// Get the donate button element
-const donateButton = document.getElementById('donate-btn');
-
-// Listen for color change event
-colorInput.addEventListener('color-input', updateColorPreview);
-slider.addEventListener('color-input', updateColorPreview);
-
-// Listen for donate form submission event
-donateForm.addEventListener('submit', handleDonation);
-
-// Store recommendations and their frequencies
-let recommendations = {};
-
-const form = document.getElementById('recommendation-form');
-const input = document.getElementById('recommendation-input');
-const list = document.getElementById('recommendation-list');
-const existingRecommendations = {}; // Replace with your existing recommendation data
-
-// Copy existing recommendations to the 'recommendations' object
-Object.assign(recommendations, existingRecommendations);
-form.addEventListener('submit', handleFormSubmit);
-
-function handleFormSubmit(event) {
-  event.preventDefault();
-
-  const recommendation = input.value.trim();
-
-  if (recommendation !== '') {
-    addRecommendation(recommendation);
-    input.value = '';
+function analyzeColor(color) {
+  // Perform color analysis and return the mood
+  // Example implementation: Mapping specific colors to moods
+  switch (color) {
+    case '#ff0000':
+      return 'unhappy';
+    case '#00ff00
+      return 'happy';
+    default:
+      return 'neutral';
   }
 }
 
-function addRecommendation(recommendation) {
-  const trimmedRecommendation = recommendation.trim();
-
-  if (trimmedRecommendation !== '') {
-    if (recommendations[trimmedRecommendation]) {
-      recommendations[trimmedRecommendation]++;
-    } else {
-      recommendations[trimmedRecommendation] = 1;
-    }
-
-    const sortedRecommendations = Object.entries(recommendations).sort((a, b) => b[1] - a[1]);
-
-    list.innerHTML = '';
-
-    for (const [rec, freq] of sortedRecommendations) {
-      const listItem = document.createElement('li');
-      listItem.textContent = `Recommendation: ${rec}, Frequency: ${freq}`;
-      list.appendChild(listItem);
-    }
+function trainAgent(numSamples) {
+  // Train the agent with random samples
+  for (var i = 0; i < numSamples; i++) {
+    var randomColor = getRandomColor();
+    var randomMood = analyzeColor(randomColor);
+    var randomRecommendation = getAgentRecommendation(randomMood);
+    agent.train(randomColor, randomMood, randomRecommendation);
   }
 }
 
-// Function to handle user recommendations
-function handleUserRecommendation(recommendation) {
-  // Retrieve existing recommendations from storage
-  let recommendations = JSON.parse(localStorage.getItem('recommendations')) || {};
+function getRandomColor() {
+  // Generate a random color in hexadecimal format
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
-  // Update the recommendation count
-  recommendations[recommendation] = (recommendations[recommendation] || 0) + 1;
-
-  // Store the updated recommendations
-  localStorage.setItem('recommendations', JSON.stringify(recommendations));
-
-  // Sort recommendations based on frequency
-  const sortedRecommendations = Object.entries(recommendations).sort((a, b) => b[1] - a[1]);
-
-  // Clear the recommendation list
-  list.innerHTML = '';
-
-  // Render the sorted recommendations
-  for (const [rec, freq] of sortedRecommendations) {
-    const listItem = document.createElement('li');
-    listItem.textContent = `Recommendation: ${rec}, Frequency: ${freq}`;
-    list.appendChild(listItem);
+function getAgentRecommendation(mood) {
+  // Get agent recommendation based on the user's mood
+  switch (mood) {
+    case 'happy':
+      return 'Enjoy your day!';
+    case 'neutral':
+      return 'Hope you have a good day.';
+    case 'unhappy':
+      return 'Take care and stay positive.';
+    default:
+      return 'Have a nice day!';
   }
 }
 
-
-// Function to handle donation
-function handleDonation(event) {
-  event.preventDefault();
-
-  // Validate color selection
-  const color = colorInput.value;
-  if (!color) {
-    document.getElementById('donation-status').textContent = 'Please select a color.';
-    return;
-  }
-
-  // Disable the donate button and show loading state
-  donateButton.disabled = true;
-  donateButton.textContent = 'Donating...';
-
-  // Perform the donation process
-  sendDonation()
-    .then(donationStatus => {
-      // Update donation status
-      document.getElementById('donation-status').textContent = donationStatus;
-    })
-    .catch(error => {
-      // Handle donation error
-      document.getElementById('donation-status').textContent = 'Failed to donate. Please try again later.';
-    })
-    .finally(() => {
-      // Enable the donate button and restore its original text
-      donateButton.disabled = false;
-      donateButton.textContent = 'Donate Now';
-    });
+function provideFeedback(feedback) {
+  // Process the user's feedback and perform actions accordingly
+  console.log('Processing feedback:', feedback);
+  // Additional actions based on feedback can be implemented here
 }
-
-// Function to send donation to the reinforcement agent
-function sendDonation() {
-  // Implementation for sending donation goes here
-  // Return a promise that resolves with the donation status
-}
-
-// Function to generate and display sentimental-based emoji
-function displaySentimentEmoji(sentiment) {
-  const emojiContainer = document.getElementById('emoji');
-
-  let emoji;
-  if (sentiment === 'positive') {
-    emoji = '😄';
-  } else if (sentiment === 'neutral') {
-    emoji = '😐';
-  } else if (sentiment === 'negative') {
-    emoji = '😔';
-  } else {
-    emoji = '❓';
-  }
-
-  emojiContainer.textContent = emoji;
-}
-
-// Function to get the sentiment label based on sentiment score
-function getSentimentLabel(sentimentScore) {
-  return sentimentScore > 20 ? 'Positive' : sentimentScore < -20 ? 'Negative' : 'Neutral';
-}
-
-// Example usage
-const color = colorInput.value;
-analyzeColorSentiment(color);
-displaySentimentEmoji(sentimentResult.textContent);
