@@ -10,12 +10,40 @@ const Sentiment = require('sentiment');
 // Instantiate the sentiment analyzer
 const sentiment = new Sentiment();
 
-
-colorInput.addEventListener('color-input', function(event) {
-    const selectedColor = event.target.value;
-    lastColorElement.textContent = selectedColor;
-    colorPreview.style.backgroundColor = selectedColor;
+$(document).ready(function() {
+// Apply selected color to the website
+  $('#color-input').change(function() {
+    var selectedColor = $(this).val();
+    $('#color-preview').css('background-color', selectedColor);
+    $('#last-color').text(selectedColor);
+    $('body').css('background-color', selectedColor);
   });
+
+  // Handle mood select change
+  $('#mood-select').change(function() {
+    var selectedMood = $(this).val();
+    $('#last-action').text('Mood changed to ' + selectedMood);
+  });
+
+  // Handle recommendation form submission
+  $('#recommendation-form').submit(function(event) {
+    event.preventDefault();
+    var recommendation = $('#recommendation-input').val();
+    $('#recommendation-list').append('<li>' + recommendation + '</li>');
+    $('#last-action').text('Recommendation added');
+    $(this)[0].reset();
+  });
+
+  // Handle donate form submission
+  $('#donate-form').submit(function(event) {
+    event.preventDefault();
+    var donationAmount = $('#donate-amount').val();
+    $('#donation-status').text('Donated ' + donationAmount + ' successfully!');
+    $('#last-action').text('Donation made');
+    $(this)[0].reset();
+  });
+});
+
 
 // Perform sentiment analysis on a color value
 function analyzeSentiment(color) {
