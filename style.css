@@ -1,31 +1,40 @@
-/* Styles for the website */
 body {
   background-color: color-input;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
+/* Add your custom CSS styles here */
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-#color-picker-container,
-#mood-select-container {
-  text-align: center;
-  margin-bottom: 20px;
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
 }
 
-#recommendation-container {
-  text-align: center;
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-#agent-recommendation {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-#feedback-btn {
-  padding: 8px 16px;
+.close:hover,
+.close:focus {
+  color: color-input;
+  text-decoration: none;
+  cursor: pointer;
 }
