@@ -1,14 +1,17 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>:Hi!:</title>
-  
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: white; /* Default background color */
+    }
+  </style>
 </head>
 <body>
-  <h1>:select favourite color now~:</h1>
+  <h1>:select favorite color now~:</h1>
 
   <div class="color-container">
     <label for="color-input">Choose a color:</label>
@@ -32,42 +35,40 @@
     <p>Sentiment: <span id="sentiment-result"></span></p>
   </div>
 
-  <head>
+  <div>
     <label for="mood-select">:|mood|:... </label>
     <select id="mood-select">
       <option value="😄 Fluid Flow - All is well!">😄 Fluid Flow - All is well!</option>
       <option value="😔 Vent Mode - Listen and hug!">😔 Vent Mode - Listen and hug!</option>
       <option value="😐 Advise Time - help me!">😐 Advise Time - help me!</option>
     </select>
-    
-    <h2>:user recommendations for a better mood:</h2>
-    <form id="recommendation-form">
-      <input type="text" id="recommendation-input" placeholder="Enter your recommendation" required>
-      <button type="submit">Submit</button>
-    </form>
-    <ul id="recommendation-list"></ul>
-    
-    <h2>:donation form:</h2>
-    <form id="donate-form">
-      <div>
-        <label for="donate-amount">Donation Amount:</label>
-        <input type="number" id="donate-amount" step="0.01" min="0" required>
-      </div>
-      <div>
-        <button type="submit" id="donate-btn">Donate Now</button>
-      </div>
-      <p id="donation-status"></p>
-    </form>
+  </div>
 
+  <h2>:user recommendations for a better mood:</h2>
+  <form id="recommendation-form">
+    <input type="text" id="recommendation-input" placeholder="Enter your recommendation" required>
+    <button type="submit">Submit</button>
+  </form>
+  <ul id="recommendation-list"></ul>
+
+  <h2>:donation form:</h2>
+  <form id="donate-form">
     <div>
-      <h2>:last status update:</h2>
-      <p id="last-action"></p>
+      <label for="donate-amount">Donation Amount:</label>
+      <input type="number" id="donate-amount" step="0.01" min="0" required>
     </div>
-  </head>
+    <div>
+      <button type="submit" id="donate-btn">Donate Now</button>
+    </div>
+    <p id="donation-status"></p>
+  </form>
+
+  <div>
+    <h2>:last status update:</h2>
+    <p id="last-action"></p>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sentiment/index.js"></script> 
-  <script src="https://unpkg.com/microsoft-translator/lib/browser/microsoft-translator.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
