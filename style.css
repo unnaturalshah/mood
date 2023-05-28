@@ -1,0 +1,41 @@
+/* Styles for the website */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#emoji {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px;
+    color: #fff;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
