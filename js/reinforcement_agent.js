@@ -46,74 +46,72 @@ function retrieveUserHistory() {
   const userHistoryList = document.getElementById('user-history-list');
   userHistoryList.innerHTML = '';
 
-  userHistory.forEach((userData) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `Mood: ${userData.mood} | Color: ${userData.color} | Timestamp: ${userData.timestamp}`;
-    userHistoryList.appendChild(listItem);
-  });
+  if (userHistory.length === 0) {
+    const emptyHistoryItem = document.createElement('li');
+    emptyHistoryItem.textContent = 'No user history available.';
+    userHistoryList.appendChild(emptyHistoryItem);
+  } else {
+    userHistory.forEach(function (userData) {
+      const historyItem = document.createElement('li');
+      historyItem.textContent = `Mood: ${userData.mood}, Color: ${userData.color}, Timestamp: ${userData.timestamp}`;
+      userHistoryList.appendChild(historyItem);
+    });
+  }
 }
 
 function forecastMood() {
   const userHistory = getLocalStorage('userHistory') || [];
+  const forecastElement = document.getElementById('forecast');
 
-  if (userHistory.length >= 2) {
-    const lastMood = userHistory[userHistory.length - 1].mood;
-    const secondLastMood = userHistory[userHistory.length - 2].mood;
+  if (userHistory.length >= 5) {
+    const latestMoods = userHistory.slice(userHistory.length - 5).map(function (userData) {
+      return userData.mood;
+    });
 
-    const forecastElement = document.getElementById('forecast');
-    forecastElement.textContent = `Forecast: ${lastMood === secondLastMood ? 'Likely to be ' + lastMood : 'Uncertain'}`;
+    const uniqueMoods = [...new Set(latestMoods)];
+    const moodCount = uniqueMoods.length;
+
+    if (moodCount === 1) {
+      forecastElement.textContent = 'Your mood is stable.';
+    } else if (moodCount >= 3) {
+      forecastElement.textContent = 'Your mood is fluctuating.';
+    } else {
+      forecastElement.textContent = 'Unable to forecast mood with certainty.';
+    }
+  } else {
+    forecastElement.textContent = 'Insufficient user history to forecast mood.';
   }
 }
 
-function openFeedbackModal() {
-  const feedbackModal = document.getElementById('feedback-modal');
-  feedbackModal.style.display = 'block';
-}
+// Event listeners
+document.getElementById('color-picker').addEventListener('change', function (event) {
+  const color = event.target.value;
+  updateBackgroundColor(color);
+});
 
-function closeFeedbackModal() {
-  const feedbackModal = document.getElementById('feedback-modal');
-  feedbackModal.style.display = 'none';
-}
+document.getElementById('mood-select').addEventListener('change', function (event) {
+  const selectedMood = event.target.value;
+  const recommendation = generateAgentRecommendation(selectedMood);
+  displayAgentRecommendation(recommendation);
+  captureUserData(selectedMood, document.getElementById('color-picker').value);
+  retrieveUserHistory();
+  forecastMood();
+});
 
-function submitFeedback() {
+document.getElementById('feedback-btn').addEventListener('click', function () {
+  document.getElementById('feedback-modal').style.display = 'block';
+});
+
+document.querySelector('.close').addEventListener('click', function () {
+  document.getElementById('feedback-modal').style.display = 'none';
+});
+
+document.getElementById('submit-feedback-btn').addEventListener('click', function () {
   const feedbackText = document.getElementById('feedback-text').value;
-  // You can handle the feedback submission here (e.g., send it to a server)
-  console.log('Feedback:', feedbackText);
-  closeFeedbackModal();
-}
-
-// Event Listeners
-const moodSelect = document.getElementById('mood-select');
-const colorPicker = document.getElementById('color-picker');
-const feedbackBtn = document.getElementById('feedback-btn');
-const closeBtn = document.getElementsByClassName('close')[0];
-const submitFeedbackBtn = document.getElementById('submit-feedback-btn');
-
-moodSelect.addEventListener('change', function () {
-  const selectedMood = this.value;
-  const agentRecommendation = generateAgentRecommendation(selectedMood);
-  displayAgentRecommendation(agentRecommendation);
+  // Process the feedback here
+  document.getElementById('feedback-modal').style.display = 'none';
 });
 
-colorPicker.addEventListener('change', function () {
-  const selectedColor = this.value;
-  updateBackgroundColor(selectedColor);
-});
-
-feedbackBtn.addEventListener('click', function () {
-  openFeedbackModal();
-});
-
-closeBtn.addEventListener('click', function () {
-  closeFeedbackModal();
-});
-
-submitFeedbackBtn.addEventListener('click', function () {
-  submitFeedback();
-});
-
-// Retrieve user history and forecast mood on page load
-window.addEventListener
 // Retrieve user history and forecast mood on page load
 window.addEventListener('DOMContentLoaded', function () {
   retrieveUserHistory();
