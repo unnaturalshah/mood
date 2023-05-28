@@ -1,17 +1,17 @@
 :| mood |: 
 
-:- Unlock Your Mood +: 
+:- unlock your mood +: 
 
 :| https://www.appcreator24.com/app2638479-imf9y3?id=com.startapp.showcase&hl=en&id=startapp_click_id_placeholder |:
 
-:> Em**POWER**ment <:
-1: Emotional resilience and adaptability: Strong emotional skills for all ages.
-2: Enhanced stress management: Effective stress coping for everyone.
-3: Positive mindset and longevity mindset: Optimism for a lifelong fulfilling life.
-4: Healthy relationships and social connections: Building strong bonds, fostering longevity.
-5: Well-being habits and lifestyle choices: Making healthy choices for lifelong wellness.
-6: Personal growth and continuous learning: Lifelong growth, expanding knowledge and skills.
-7: Listen and much more, try it out, what's the harm?! :![: All this to say, I am sending you this app not for you, and more for us to stay connected and keep growing together :D
+:> em**POWER**ment <:
+:1: Emotional resilience and adaptability: Strong emotional skills for all ages.
+:2: Enhanced stress management: Effective stress coping for everyone.
+:3: Positive mindset and longevity mindset: Optimism for a lifelong fulfilling life.
+:4: Healthy relationships and social connections: Building strong bonds, fostering longevity.
+:5: Well-being habits and lifestyle choices: Making healthy choices for lifelong wellness.
+:6: Personal growth and continuous learning: Lifelong growth, expanding knowledge and skills.
+:7: Listen and much more, try it out, what's the harm?! :![: All this to say, I am sending you this app not for you, and more for us to stay connected and keep growing together :D
 
 :~ Early Testimonial(s) ~:
 
