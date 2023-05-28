@@ -1,82 +1,30 @@
 /* Styles for the website */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #f0f0f0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    color: #333;
-}
-
-.color-container {
-  margin-bottom: 20px;
-}
-
-.color-container label {
-  font-weight: bold;
-}
-
-.color-info {
-  margin-bottom: 20px;
-}
-
-.color-info h2 {
-  color: #666;
-}
-
-.donation {
-  margin-top: 20px;
-}
-
-.donation h2 {
-  color: #666;
-}
-
-.donation button {
-  padding: 10px 20px;
-  background-color: #f0f0f0;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.donation button:hover {
-  background-color: #45a049;
-}
-
-#donation-status {
-  margin-top: 10px;
+  text-align: center;
   color: #333;
 }
 
-#emoji {
-    font-size: 24px;
-    margin-bottom: 10px;
+#color-picker-container,
+#mood-select-container {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-nav {
-    background-color: #333;
-    padding: 10px;
-    color: #fff;
+#recommendation-container {
+  text-align: center;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 10px;
+#agent-recommendation {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-main {
-    padding: 20px;
-}
-
-footer {
-    background-color: #f0f0f0;
-    padding: 20px;
+#feedback-btn {
+  padding: 8px 16px;
 }
