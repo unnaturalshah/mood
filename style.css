@@ -14,6 +14,47 @@ h1 {
     color: #333;
 }
 
+.color-container {
+  margin-bottom: 20px;
+}
+
+.color-container label {
+  font-weight: bold;
+}
+
+.color-info {
+  margin-bottom: 20px;
+}
+
+.color-info h2 {
+  color: #666;
+}
+
+.donation {
+  margin-top: 20px;
+}
+
+.donation h2 {
+  color: #666;
+}
+
+.donation button {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.donation button:hover {
+  background-color: #45a049;
+}
+
+#donation-status {
+  margin-top: 10px;
+  color: #333;
+}
+
 #emoji {
     font-size: 24px;
     margin-bottom: 10px;
