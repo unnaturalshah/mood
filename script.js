@@ -1,11 +1,21 @@
 // JavaScript code for the website
 const colorInput = document.getElementById('color-input');
+const lastColorElement = document.getElementById('last-color');
+const colorPreview = document.getElementById('color-preview');
+
 const slider = document.getElementById('color-slider');
 const sentimentResult = document.getElementById('sentiment-result');
 const Sentiment = require('sentiment');
 
 // Instantiate the sentiment analyzer
 const sentiment = new Sentiment();
+
+
+colorInput.addEventListener('color-input', function(event) {
+    const selectedColor = event.target.value;
+    lastColorElement.textContent = selectedColor;
+    colorPreview.style.backgroundColor = selectedColor;
+  });
 
 // Perform sentiment analysis on a color value
 function analyzeSentiment(color) {
@@ -36,8 +46,8 @@ const donateForm = document.getElementById('donate-form');
 const donateButton = document.getElementById('donate-btn');
 
 // Listen for color change event
-colorInput.addEventListener('input', updateColorPreview);
-slider.addEventListener('input', updateColorPreview);
+colorInput.addEventListener('color-input', updateColorPreview);
+slider.addEventListener('color-input', updateColorPreview);
 
 // Listen for donate form submission event
 donateForm.addEventListener('submit', handleDonation);
