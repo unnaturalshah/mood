@@ -1,74 +1,36 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>:Hi!:</title>
-  <style>
-    body {
-      background-color: white; /* Default background color */
-    }
-  </style>
+  <title>Happy Customer Reinforcement Agent</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>:select favorite color now~:</h1>
-
-  <div class="color-container">
-    <label for="color-input">Choose a color:</label>
-    <input type="color" id="color-input">
+  <div id="color-picker-container">
+    <label for="color-picker">Choose a color:</label>
+    <input type="color" id="color-picker">
   </div>
 
-  <div class="color-info">
-    <h2>Last Updated Color:</h2>
-    <p id="last-color"></p>
-  </div>
+  <h1>Welcome to Happy Customer Agent</h1>
 
-  <div>
-    <h2>:</h2>
-    <div id="color-preview" style="width: 100px; height: 100px;"></div>
-  </div>
-
-  <div>
-    <h2>:</h2>
-    <div id="color-preview2" style="width: 100px; height: 100px; background-color: #ff0000;"></div>
-    <p>Last Color: <span id="last-color2">#ff0000</span></p>
-    <p>Sentiment: <span id="sentiment-result"></span></p>
-  </div>
-
-  <div>
-    <label for="mood-select">:|mood|:... </label>
+  <div id="mood-select-container">
+    <label for="mood-select">Select your mood:</label>
     <select id="mood-select">
-      <option value="😄 Fluid Flow - All is well!">😄 Fluid Flow - All is well!</option>
-      <option value="😔 Vent Mode - Listen and hug!">😔 Vent Mode - Listen and hug!</option>
-      <option value="😐 Advise Time - help me!">😐 Advise Time - help me!</option>
+      <option value="happy">Happy</option>
+      <option value="neutral">Neutral</option>
+      <option value="unhappy">Unhappy</option>
     </select>
   </div>
 
-  <h2>:user recommendations for a better mood:</h2>
-  <form id="recommendation-form">
-    <input type="text" id="recommendation-input" placeholder="Enter your recommendation" required>
-    <button type="submit">Submit</button>
-  </form>
-  <ul id="recommendation-list"></ul>
-
-  <h2>:donation form:</h2>
-  <form id="donate-form">
-    <div>
-      <label for="donate-amount">Donation Amount:</label>
-      <input type="number" id="donate-amount" step="0.01" min="0" required>
-    </div>
-    <div>
-      <button type="submit" id="donate-btn">Donate Now</button>
-    </div>
-    <p id="donation-status"></p>
-  </form>
-
-  <div>
-    <h2>:last status update:</h2>
-    <p id="last-action"></p>
+  <div id="recommendation-container">
+    <h2>Agent Recommendation:</h2>
+    <p id="agent-recommendation"></p>
+    <button id="feedback-btn">Provide Feedback</button>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="script.js"></script>
+  <script src="js/local_storage.js"></script>
+  <script src="js/reinforcement_agent.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
