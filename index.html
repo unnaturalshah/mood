@@ -1,6 +1,8 @@
-<html>
+<html lang="en">
 <head>
-  <title>HELLO!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:Hi!:</title>
   <style>
     body {
       background-color: white; /* Default background color */
@@ -10,29 +12,63 @@
 </head>
 <body>
 
-  <label for="mood-select">I feel... </label>
+  <h1>:select favourite color now~:</h1>
+
+  <div class="color-container">
+    <label for="color-input">Color:</label>
+    <input type="color" id="color-input" value="#ff0000">
+  </div>
+
+  <div>
+    <input type="range" id="color-slider" min="0" max="360" value="0">
+  </div>
+
+  <div>
+    <h2>:</h2>
+    <div id="color-preview" style="width: 100px; height: 100px; background-color: #ff0000;"></div>
+    <p>Last Color: <span id="last-color">#ff0000</span></p>
+    <p>Sentiment: <span id="sentiment-result"></span></p>
+  </div>
+
+ <head>
+  
+
+
+  
+ 
+  <label for="mood-select">:|mood|:... </label>
 <select id="mood-select">
   <option value="😄 Fluid Flow - All is well!:">😄 Fluid Flow - All is well!:</option>
   <option value="😔 Vent Mode - Listen and hug!:">😔 Vent Mode - Listen and hug!:</option>
   <option value="😐 Advise Time - help me!:">😐 Advise Time - help me!:</option>
 </select>
-
-
-  <h1>Color Picker</h1>
-  <input type="color" id="color-picker">
   
+  <h2>:user recommendations for a better mood:</h2>
+  <form id="recommendation-form">
+    <input type="text" id="recommendation-input" placeholder="Enter your recommendation" required>
+    <button type="submit">Submit</button>
+  </form>
+  <ul id="recommendation-list"></ul>
+  
+  
+  <h2>:donation form:</h2>
+  <form id="donate-form">
     <div>
-    <button id="submit-btn">Submit</button>
-  </div>
+      <label for="donate-amount">Donation Amount:</label>
+      <input type="number" id="donate-amount" step="0.01" min="0" required>
+    </div>
+    <div>
+      <button type="submit" id="donate-btn">Donate Now</button>
+    </div>
+    <p id="donation-status"></p>
+  </form>
+
 
   <div>
-    <h2>Last Updated Status:</h2>
+    <h2>:last status update:</h2>
     <p id="last-action"></p>
   </div>
   
-  <h1>Color Sentiment Insights</h1>
-  <p id="color-sentiment"></p>
-  <p id="user-insights"></p>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sentiment/index.js"></script> 
