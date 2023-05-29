@@ -8,20 +8,25 @@
 </head>
 <body>
   <header>
-    <h1>Welcome to Happy Customer Agent</h1>
+    <h1>:m:</h1>
   </header>
 
   <div id="color-picker-container">
     <label for="color-picker">Choose a color:</label>
     <input type="color" id="color-picker">
   </div>
+  
+  <div id="forecast-container">
+    <h2>Forecast:</h2>
+    <p id="forecast"></p>
+  </div>
 
   <div id="mood-select-container">
     <label for="mood-select">Select your mood:</label>
     <select id="mood-select">
-      <option value="happy">Happy</option>
-      <option value="neutral">Neutral</option>
-      <option value="unhappy">Unhappy</option>
+      <option value=":) happy">Happy</option>
+      <option value=":| neutral">Neutral</option>
+      <option value=":( unhappy">Unhappy</option>
     </select>
   </div>
 
@@ -31,15 +36,6 @@
     <button id="feedback-btn">Provide Feedback</button>
   </div>
 
-  <div id="user-history-container">
-    <h2>User History:</h2>
-    <ul id="user-history-list"></ul>
-  </div>
-
-  <div id="forecast-container">
-    <h2>Forecast:</h2>
-    <p id="forecast"></p>
-  </div>
 
   <div id="feedback-modal" class="modal">
     <div class="modal-content">
@@ -48,6 +44,8 @@
       <button id="submit-feedback-btn">Submit</button>
     </div>
   </div>
+  
+
 
   <script src="js/local_storage.js"></script>
   <script src="js/reinforcement_agent.js"></script>
