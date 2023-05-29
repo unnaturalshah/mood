@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Train agent with 300 random samples
-  trainAgent(300);
+  trainAgent(0);
 });
 
 function analyzeColor(color) {
