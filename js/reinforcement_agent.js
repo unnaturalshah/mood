@@ -1,5 +1,5 @@
 function generateAgentRecommendation(mood) {
-  let recommendation = '';
+  let recommendation = ':default:';
 
   switch (mood) {
     case 'happy':
