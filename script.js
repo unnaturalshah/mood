@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   feedbackBtn.addEventListener('click', function() {
-    var feedback = agentRecommendation.textContent;
+    var feedback = getAgentRecommendation.textContent;
     provideFeedback(feedback);
     // Perform actions based on the feedback
-    console.log('Provided feedback:', feedback);
+    console.log(':| mood |: :step 3:', feedback);
   });
 
   // Train agent with 300 random samples
