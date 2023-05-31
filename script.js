@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   feedbackBtn.addEventListener('click', function() {
-    var feedback = getAgentRecommendation.textContent;
+    var feedback = agentRecommendation.textContent;
     provideFeedback(feedback);
     // Perform actions based on the feedback
     console.log(':| mood |: :step 3:', feedback);
