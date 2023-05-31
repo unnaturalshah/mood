@@ -70,18 +70,18 @@ function getAgentRecommendation(mood) {
   // Get agent recommendation based on the user's mood
   switch (mood) {
     case 'happy':
-      return 'Enjoy your day!';
+      return ':enjoy your day!:';
     case 'neutral':
-      return 'Hope you have a good day.';
+      return ':hope you have a good day.:';
     case 'unhappy':
-      return 'Take care and stay positive.';
+      return ':take care and stay positive.:';
     default:
-      return 'Have a nice day!';
+      return ':have a nice day!:';
   }
 }
 
 function provideFeedback(feedback) {
   // Process the user's feedback and perform actions accordingly
-  console.log('Processing feedback:', feedback);
+  console.log(':processing feedback:', feedback);
   // Additional actions based on feedback can be implemented here
 }
