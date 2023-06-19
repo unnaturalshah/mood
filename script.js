@@ -44,7 +44,7 @@ function analyzeColor(color) {
     default:
       return 'neutral';
   }
-}
+};
 
 function trainAgent(numSamples) {
   // Train the agent with random samples
@@ -54,7 +54,7 @@ function trainAgent(numSamples) {
     var randomRecommendation = getAgentRecommendation(randomMood);
     agent.train(randomColor, randomMood, randomRecommendation);
   }
-}
+};
 
 function getRandomColor() {
   // Generate a random color in hexadecimal format
@@ -64,10 +64,10 @@ function getRandomColor() {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
-}
+};
 
 function getAgentRecommendation(mood) {
-  // Get agent recommendation based on the user's mood
+  // Get agent recommendation based on the user mood
   switch (mood) {
     case 'happy':
       return ':enjoy your day!:';
@@ -78,10 +78,10 @@ function getAgentRecommendation(mood) {
     default:
       return ':have a nice day!:';
   }
-}
+};
 
 function provideFeedback(feedback) {
   // Process the user's feedback and perform actions accordingly
   console.log(':processing feedback:', feedback);
   // Additional actions based on feedback can be implemented here
-}
+};
