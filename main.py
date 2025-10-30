@@ -308,10 +308,3 @@ if page=="Settings":
 
 
 ---
-
-Run locally:
-
-pip install streamlit pandas plotly numpy
-streamlit run mood_main_entry.py
-
-This turns :| mood |: into the central hub for **obtaining, maintaining,
