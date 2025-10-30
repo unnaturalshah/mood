@@ -1,23 +1,3 @@
-Perfect! Here’s the full Streamlit code for your :| mood |: Main Entry Point Dashboard—a unified, gamified, family-friendly wellness hub with:
-
-Landing page with quick summary tiles
-
-Log Mood (Text/Emoji/Voice)
-
-Personal Dashboard (radar/bar charts, streaks, points, micro-goals)
-
-Family/Shared Dashboard (group trends, leaderboard, badges)
-
-Weekly & Monthly Highlights
-
-Settings & Safety/Age Controls
-
-Gamification: points, badges, individual/family streaks, real-time notifications
-
-
-
----
-
 """
 :| mood |: Main Entry Point Dashboard
 Fully local, interactive, multi-user wellness hub
